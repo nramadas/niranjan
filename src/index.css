@@ -1,4 +1,16 @@
+@import-normalize;
+
+html {
+  height: 100%;
+}
+
 body {
+  --color-bodyText: #222;
+  --color-canvas: #FFF;
+  --color-nav: #777;
+
+  background-color: var(--color-canvas);
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,7 +19,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-bodyText: #DDD;
+    --color-canvas: #222;
+    --color-nav: #888;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  height: 100%;
 }
