@@ -6,7 +6,7 @@ html {
 
 body {
   --color-bodyText: #222;
-  --color-canvas: #FFF;
+  --color-canvas: #fff;
   --color-nav: #777;
 
   background-color: var(--color-canvas);
@@ -21,7 +21,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    --color-bodyText: #DDD;
+    --color-bodyText: #ddd;
     --color-canvas: #222;
     --color-nav: #888;
   }
