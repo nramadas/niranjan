@@ -6,10 +6,13 @@
 
   body {
     --color-bodyText: #222;
+    --color-border: rgba(0, 0, 0, 0.25);
     --color-canvas: #FFF;
+    --color-hover: rgba(0, 0, 0, 0.1);
     --color-nav: #777;
 
     background-color: var(--color-canvas);
+    box-sizing: border-box;
     height: 100%;
     margin: 0;
     padding: 24px;
@@ -25,7 +28,9 @@
   @media (prefers-color-scheme: dark) {
     body {
       --color-bodyText: #DDD;
+      --color-border: rgba(255, 255, 255, 0.25);
       --color-canvas: #222;
+      --color-hover: rgba(255, 255, 255, 0.1);
       --color-nav: #888;
     }
   }
