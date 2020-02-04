@@ -9,7 +9,9 @@ import './index.css';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <div className="wrapper">
+      <App />
+    </div>
   </BrowserRouter>,
   document.getElementById('root'),
 );
