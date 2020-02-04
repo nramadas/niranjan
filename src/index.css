@@ -12,6 +12,7 @@ body {
   --color-nav: #777;
 
   background-color: var(--color-canvas);
+  color: var(--color-bodyText);
   height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
