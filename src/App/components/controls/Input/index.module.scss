@@ -25,7 +25,7 @@
   height: 100%;
   letter-spacing: 0.00937rem;
   outline: none;
-  padding: 16px 8px 8px;
+  padding: 18px 8px 6px;
   text-decoration: inherit;
   text-transform: inherit;
   width: 100%;
@@ -39,14 +39,16 @@
   &:focus {
     & + .label {
       color: var(--color-bodyText);
-      transform: translateY(-50%) scale(0.5);
+      transform: scale(0.5);
+      margin-top: -0.75rem;
     }
   }
 
   &:not(:placeholder-shown) {
     & + .label {
       color: var(--color-bodyText);
-      transform: translateY(-50%) scale(0.5);
+      transform: scale(0.5);
+      margin-top: -0.75rem;
     }
   }
 }

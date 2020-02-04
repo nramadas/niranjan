@@ -1,6 +1,8 @@
-.link {
+.button {
+  background-color: var(--color-nav);
+  border: none;
   border-radius: 2px;
-  color: var(--color-nav);
+  color: var(--color-canvas);
   cursor: pointer;
   font-size: 14px;
   line-height: 1;
@@ -11,12 +13,11 @@
   transition: color 0.15s, background-color 0.15s;
 
   &:focus {
-    color: var(--color-bodyText);
+    background-color: var(--color-bodyText);
   }
 
   &:hover,
   &:hover &:focus {
     background-color: var(--color-bodyText);
-    color: var(--color-canvas);
   }
 }

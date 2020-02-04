@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Node } from 'slate';
 
 import AnchorButtonComponent from './AnchorButton';
+import ButtonComponent from './Button';
 import InputComponent from './Input';
 import LinkButtonComponent from './LinkButton';
 import RichTextEditorComponent from './RichTextEditor';
@@ -11,6 +12,8 @@ import { Type } from './RichTextEditor/Toolbar/definitions';
 export const AnchorButton = () => (
   <AnchorButtonComponent href="#">AnchorButton</AnchorButtonComponent>
 );
+
+export const Button = () => <ButtonComponent>Button</ButtonComponent>;
 
 export const Input = () => <InputComponent label="Input" />;
 
@@ -28,15 +31,7 @@ export const RichTextEditor = () => {
     },
   ]);
 
-  return (
-    <RichTextEditorComponent
-      value={value}
-      onChange={value => {
-        console.log(JSON.stringify(value, undefined, 2));
-        setValue(value);
-      }}
-    />
-  );
+  return <RichTextEditorComponent value={value} onChange={setValue} />;
 };
 
 export default { title: 'controls' };
