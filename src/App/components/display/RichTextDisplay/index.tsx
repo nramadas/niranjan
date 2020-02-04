@@ -1,13 +1,10 @@
 import React from 'react';
-import cx from 'classnames';
 
 import {
   Type,
   ElementType,
 } from '../../controls/RichTextEditor/Toolbar/definitions';
 import * as typography from '../../typography';
-
-import styles from './index.module.scss';
 
 interface ElementProps {
   children?: Node[];
@@ -78,7 +75,7 @@ interface Props {
 }
 
 const RichTextDisplay = (props: Props) => (
-  <div className={cx(props.className, styles.container)}>
+  <div className={props.className}>
     {props.value.map(node => (
       <NodeDisplay node={node} />
     ))}

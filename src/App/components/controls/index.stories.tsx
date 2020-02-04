@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Node } from 'slate';
 
 import AnchorButtonComponent from './AnchorButton';
+import InputComponent from './Input';
 import LinkButtonComponent from './LinkButton';
 import RichTextEditorComponent from './RichTextEditor';
 import { Type } from './RichTextEditor/Toolbar/definitions';
@@ -10,6 +11,8 @@ import { Type } from './RichTextEditor/Toolbar/definitions';
 export const AnchorButton = () => (
   <AnchorButtonComponent href="#">AnchorButton</AnchorButtonComponent>
 );
+
+export const Input = () => <InputComponent label="Input" />;
 
 export const LinkButton = () => (
   <BrowserRouter>
