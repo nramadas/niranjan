@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MainTitle from '../../typography/MainTitle';
+import { MainTitle } from '../../typography';
 import AnchorButton from '../../controls/AnchorButton';
 import LinkButton from '../../controls/LinkButton';
 

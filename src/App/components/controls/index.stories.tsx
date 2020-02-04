@@ -25,7 +25,15 @@ export const RichTextEditor = () => {
     },
   ]);
 
-  return <RichTextEditorComponent value={value} onChange={setValue} />;
+  return (
+    <RichTextEditorComponent
+      value={value}
+      onChange={value => {
+        console.log(JSON.stringify(value, undefined, 2));
+        setValue(value);
+      }}
+    />
+  );
 };
 
 export default { title: 'controls' };
