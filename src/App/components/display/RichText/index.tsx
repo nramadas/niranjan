@@ -30,7 +30,7 @@ export const NodeDisplay = (props: NodeProps): JSX.Element => {
 
   if ('type' in node) {
     const children = node.children
-      ? node.children.map(child => <NodeDisplay node={child} />)
+      ? node.children.map((child, i) => <NodeDisplay key={i} node={child} />)
       : null;
 
     switch (node.type) {
@@ -76,8 +76,8 @@ interface Props {
 
 const RichText = (props: Props) => (
   <div className={props.className}>
-    {props.value.map(node => (
-      <NodeDisplay node={node} />
+    {props.value.map((node, i) => (
+      <NodeDisplay key={i} node={node} />
     ))}
   </div>
 );
