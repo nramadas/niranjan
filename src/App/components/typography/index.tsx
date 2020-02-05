@@ -7,6 +7,9 @@ interface Props {
   children: React.ReactNode;
 }
 
+export const ArticleTitle = (props: Props) => (
+  <h1 className={styles.articleTitle}>{props.children}</h1>
+);
 export const Blockquote = (props: Props) => (
   <p className={nodeStyles.blockquote}>{props.children}</p>
 );

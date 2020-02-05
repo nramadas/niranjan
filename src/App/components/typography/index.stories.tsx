@@ -2,6 +2,9 @@ import React from 'react';
 
 import * as typography from './';
 
+export const ArticleTitle = () => (
+  <typography.ArticleTitle>ArticleTitle</typography.ArticleTitle>
+);
 export const Blockquote = () => (
   <typography.Blockquote>Blockquote</typography.Blockquote>
 );

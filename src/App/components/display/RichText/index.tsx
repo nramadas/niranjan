@@ -19,7 +19,7 @@ interface LeafProps {
   underline?: boolean;
 }
 
-type Node = ElementProps | LeafProps;
+export type Node = ElementProps | LeafProps;
 
 interface NodeProps {
   node: Node;
@@ -74,7 +74,7 @@ interface Props {
   value: Node[];
 }
 
-const RichTextDisplay = (props: Props) => (
+const RichText = (props: Props) => (
   <div className={props.className}>
     {props.value.map(node => (
       <NodeDisplay node={node} />
@@ -82,4 +82,4 @@ const RichTextDisplay = (props: Props) => (
   </div>
 );
 
-export default RichTextDisplay;
+export default RichText;
