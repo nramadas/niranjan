@@ -1,9 +1,9 @@
 const cassandra = require('cassandra-driver');
 
 const client = new cassandra.Client({
-  contactPoints: ['127.0.0.1:9042'],
-  localDataCenter: 'datacenter1',
-  keyspace: 'dev',
+  contactPoints: [process.env.CASS_CONTACT],
+  localDataCenter: process.env.CASS_DATACENTER,
+  keyspace: process.env.CASS_KEYSPACE,
 });
 
 module.exports = function runQuery(strings, ...args) {

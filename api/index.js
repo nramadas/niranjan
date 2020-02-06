@@ -120,4 +120,4 @@ app.use(
   }),
 );
 
-app.listen(4000);
+app.listen(process.env.GQL_PORT);
