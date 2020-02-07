@@ -27,7 +27,7 @@ module.exports = {
       content
     ) values (
       1,
-      ${1},
+      1,
       ${created},
       ${title},
       ${content}
@@ -42,6 +42,14 @@ module.exports = {
     SELECT id, created, title, next, prev, content
     FROM articles
     WHERE partition_key = 1
+    ORDER BY id
+    DESC
+    LIMIT ${count}
+  `,
+  getLastestArticlesAfter: (count, after) => runQuery`
+    SELECT id, created, title, next, prev, content
+    FROM articles
+    WHERE partition_key = 1 AND id < ${after}
     ORDER BY id
     DESC
     LIMIT ${count}

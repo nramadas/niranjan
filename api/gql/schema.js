@@ -22,7 +22,7 @@ module.exports = buildSchema(`
 
   type Query {
     getArticle(id: ID!): Article
-    getLatestArticles(count: Int!): [Article]
+    getLatestArticles(count: Int!, after: ID): [Article]
   }
 
   input ContentNode {
