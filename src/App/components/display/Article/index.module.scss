@@ -7,7 +7,14 @@
 }
 
 .title {
-  margin-bottom: 64px;
+  display: block;
+  margin-bottom: 36px;
+
+  &,
+  &:visited {
+    color: var(--color-bodyText);
+    text-decoration: none;
+  }
 }
 
 .wrapper {

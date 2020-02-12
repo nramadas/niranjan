@@ -9,5 +9,5 @@ module.exports = ({ count, after }) =>
     .then(data => rowsToArticles(data.rows))
     .catch(error => {
       console.error(error);
-      return null;
+      throw error;
     });

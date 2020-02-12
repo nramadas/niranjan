@@ -19,7 +19,7 @@ module.exports = async ({ content, title }) => {
       })
       .catch(error => {
         console.error(error);
-        return false;
+        throw error;
       });
   }
 
@@ -28,6 +28,6 @@ module.exports = async ({ content, title }) => {
     .then(() => true)
     .catch(error => {
       console.error(error);
-      return false;
+      throw error;
     });
 };

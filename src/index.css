@@ -15,7 +15,6 @@ html {
 }
 
 body {
-  background: var(--image-canvas);
   color: var(--color-bodyText);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -50,8 +49,23 @@ code {
   height: 100%;
 }
 
+.gutter {
+  background-image: var(--image-canvas);
+  bottom: -1000px;
+  pointer-events: none;
+  position: fixed;
+  top: -1000px;
+  width: 40px;
+}
+
+.gutterLeft {
+  left: 0;
+}
+
+.gutterRight {
+  right: 0;
+}
+
 .wrapper {
-  background-color: var(--color-canvas);
-  margin: 0 auto;
   width: calc(100% - 80px);
 }

@@ -6,10 +6,16 @@ interface State {
 
 export default function makeAsync(loader: Promise<ComponentType>) {
   return class AsyncComponent extends React.Component<any, State> {
+    mounted: boolean = false;
     state: State = { Component: null };
 
     async componentDidMount() {
-      loader.then(Component => this.setState({ Component }));
+      this.mounted = true;
+      loader.then(Component => this.mounted && this.setState({ Component }));
+    }
+
+    componentWillUnmount() {
+      this.mounted = false;
     }
 
     render() {

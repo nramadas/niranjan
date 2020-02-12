@@ -14,7 +14,7 @@ module.exports = buildSchema(`
   type Article {
     id: ID!
     title: String!
-    created: Int!
+    created: Float!
     next: String
     prev: String
     content: [Node]

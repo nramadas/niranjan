@@ -197,6 +197,7 @@ export const Article = () => (
   <ArticleComponent
     content={EXAMPLE_CONTENT}
     date={1580861142284}
+    id={1}
     title="This is an example Article"
   />
 );
@@ -206,16 +207,19 @@ export const Articles = () => (
     <ArticleComponent
       content={EXAMPLE_CONTENT}
       date={1580861142284}
+      id={1}
       title="This is an example Article"
     />
     <ArticleComponent
       content={EXAMPLE_CONTENT}
       date={1580861142284}
+      id={1}
       title="This is an example Article"
     />
     <ArticleComponent
       content={EXAMPLE_CONTENT}
       date={1580861142284}
+      id={1}
       title="This is an example Article"
     />
   </React.Fragment>

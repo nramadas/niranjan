@@ -6,20 +6,15 @@ import {
 } from '../../controls/RichTextEditor/Toolbar/definitions';
 import * as typography from '../../typography';
 
-interface ElementProps {
-  children?: Node[];
-  type: ElementType;
-}
-
-interface LeafProps {
+export interface Node {
   bold?: boolean;
+  children?: Node[];
   code?: boolean;
   italic?: boolean;
   text?: string;
+  type?: ElementType;
   underline?: boolean;
 }
-
-export type Node = ElementProps | LeafProps;
 
 interface NodeProps {
   node: Node;
@@ -28,7 +23,7 @@ interface NodeProps {
 export const NodeDisplay = (props: NodeProps): JSX.Element => {
   const { node } = props;
 
-  if ('type' in node) {
+  if (node.type) {
     const children = node.children
       ? node.children.map((child, i) => <NodeDisplay key={i} node={child} />)
       : null;

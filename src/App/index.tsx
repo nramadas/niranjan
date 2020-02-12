@@ -1,15 +1,26 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Provider, createClient } from 'urql';
 
+import Blog from './components/pages/Blog/async';
 import Root from './components/pages/Root/async';
+
+const gqlClient = createClient({
+  url: process.env.API_URL || 'http://localhost:4000',
+});
 
 const App: React.FC = () => {
   return (
-    <Switch>
-      <Route path="/">
-        <Root />
-      </Route>
-    </Switch>
+    <Provider value={gqlClient}>
+      <Switch>
+        <Route exact path="/">
+          <Root />
+        </Route>
+        <Route exact path={['/blog', '/blog/:id/:title']}>
+          <Blog />
+        </Route>
+      </Switch>
+    </Provider>
   );
 };
 

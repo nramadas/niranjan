@@ -7,5 +7,5 @@ module.exports = ({ id }) =>
     .then(data => rowsToArticles(data.rows)[0] || null)
     .catch(error => {
       console.error(error);
-      return null;
+      throw error;
     });

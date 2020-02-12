@@ -11,6 +11,8 @@ ReactDOM.render(
   <BrowserRouter>
     <div className="wrapper">
       <App />
+      <div className="gutter gutterLeft" />
+      <div className="gutter gutterRight" />
     </div>
   </BrowserRouter>,
   document.getElementById('root'),
