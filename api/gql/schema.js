@@ -36,6 +36,6 @@ module.exports = buildSchema(`
   }
 
   type Mutation {
-    createArticle(title: String!, content: [ContentNode]!): Boolean
+    createArticle(title: String!, content: [ContentNode]!, boxedContent: String!, boxedTitle: String!): Boolean
   }
 `);

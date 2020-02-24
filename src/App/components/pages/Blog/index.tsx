@@ -4,6 +4,9 @@ import { useHistory, useRouteMatch } from 'react-router-dom';
 import Article from '../../display/Article';
 import useArticles from '../../../hooks/useArticles';
 import useVisible from '../../../hooks/useVisible';
+import { Paragraph } from '../../typography';
+
+import styles from './index.module.scss';
 
 interface UrlParams {
   id: string;
@@ -26,14 +29,15 @@ const Blog = () => {
   visibility.onVisibleChange(visibleIdxs => {
     const firstVisibleIndex = visibleIdxs[0];
     const article = results.articles[firstVisibleIndex];
-    if (article) {
-      history.replace(`/blog/${article.id}/${article.title}`);
-    }
-  });
 
-  // when the last element appears, fetch more articles
-  visibility.onLastVisibleChange((_, index) => {
-    if (index === results.articles.length - 1) {
+    if (article) {
+      const title = encodeURIComponent(article.title.replace(/ /g, '-'));
+      history.replace(`/blog/${article.id}/${title}`);
+    }
+
+    // when the last element appears, fetch more articles
+    const lastVisibleIndex = visibleIdxs[visibleIdxs.length - 1];
+    if (lastVisibleIndex === results.articles.length - 1) {
       results.loadMore();
     }
   });
@@ -50,6 +54,11 @@ const Blog = () => {
           title={article.title}
         />
       ))}
+      {results.error && (
+        <div className={styles.error}>
+          <Paragraph>Error: Could not load articles</Paragraph>
+        </div>
+      )}
     </div>
   );
 };

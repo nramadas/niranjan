@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 
@@ -17,6 +18,29 @@ app.use(
 );
 
 // attach gql
-app.use('/', gql);
+app.use(bodyParser.json());
+app.get('/', gql);
 
-app.listen(process.env.GQL_PORT);
+app.post('/', (req, res, next) => {
+  const { query } = req.body;
+
+  if (query) {
+    if (query.includes('mutation')) {
+      console.log('\n\033[0;35m[mutation]\033[0m');
+      console.log(query);
+    } else {
+      console.log('\n\033[0;32m[query]\033[0m');
+      console.log(query);
+    }
+  }
+
+  next();
+});
+
+app.use(gql);
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log('GQL server running on', port);
+});

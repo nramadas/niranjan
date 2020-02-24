@@ -67,5 +67,6 @@ code {
 }
 
 .wrapper {
+  margin: 0 auto;
   width: calc(100% - 80px);
 }

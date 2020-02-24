@@ -1,10 +1,32 @@
+const nacl = require('tweetnacl');
+const equals = require('ramda/src/equals');
+
 const getLatestArticles = require('./getLatestArticles');
 const queries = require('../../db/queries');
 
-module.exports = async ({ content, title }) => {
+const pkeyStr = process.env.PUBLIC_KEY || '';
+const publicKey = new Uint8Array(pkeyStr.split(','));
+
+module.exports = async ({ boxedContent, boxedTitle, content, title }) => {
   const contentStr = JSON.stringify(content);
   const created = Date.now();
   const [latestArticle] = await getLatestArticles(1);
+  const decoder = new TextDecoder();
+
+  const unboxedContent = JSON.parse(
+    decoder.decode(
+      nacl.sign.open(new Uint8Array(boxedContent.split(',')), publicKey),
+    ),
+  );
+
+  const unboxedTitle = decoder.decode(
+    nacl.sign.open(new Uint8Array(boxedTitle.split(',')), publicKey),
+  );
+
+  if (!equals(unboxedContent, content) || unboxedTitle !== title) {
+    console.log('Not Authorized');
+    throw new Error('Not Authorized');
+  }
 
   if (latestArticle) {
     const prev = latestArticle.id;

@@ -24,6 +24,7 @@
     "react-scripts": "3.3.0",
     "slate": "^0.57.1",
     "slate-react": "^0.57.1",
+    "tweetnacl": "^1.0.3",
     "typescript": "~3.7.2",
     "urql": "^1.8.2"
   },
@@ -35,7 +36,7 @@
     "pretty": "prettier --single-quote --trailing-comma all --write \"{src,api}/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "start:api": "CASS_CONTACT=127.0.0.1:9042 CASS_DATACENTER=datacenter1 CASS_KEYSPACE=dev GQL_PORT=4000 node ./api/index.js"
+    "start:api": "CASS_CONTACT=127.0.0.1:9042 CASS_DATACENTER=datacenter1 CASS_KEYSPACE=dev PORT=4000 node ./api/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"

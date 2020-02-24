@@ -17,12 +17,7 @@ const Input = (props: Props) => {
         [styles.withIcon]: !!icon,
       })}
     >
-      <input
-        {...rest}
-        className={styles.input}
-        type="text"
-        placeholder="&nbsp;"
-      />
+      <input {...rest} className={styles.input} placeholder="&nbsp;" />
       <div className={styles.label}>{label}</div>
       {icon &&
         React.cloneElement(icon, {

@@ -22,10 +22,6 @@ const useVisible = <E extends Element>() => {
     (node: E, index: number) => void
   >();
 
-  const [lastVisibleCallback, onLastVisibleChange] = useAttachableCallback<
-    (node: E, index: number) => void
-  >();
-
   const [visibleChangeCallback, onVisibleChange] = useAttachableCallback<
     (visibleIdxs: number[]) => void
   >();
@@ -55,7 +51,7 @@ const useVisible = <E extends Element>() => {
                 target,
               ] as ElementWithPosition,
           )
-          .sort((a, b) => b[0] - a[0]); // sort in reverse order
+          .sort((a, b) => a[0] - b[0]);
 
         // mark the appropriate visible/hidden states
         newlyVisibleEntries.forEach(([_, el]) =>
@@ -66,17 +62,12 @@ const useVisible = <E extends Element>() => {
         );
 
         const firstNewlyVisible = newlyVisibleEntries[0];
-        const lastNewlyHidden = newlyHiddenEntries[0];
 
         if (firstNewlyVisible && firstVisibleCallback.current) {
           firstVisibleCallback.current(
             firstNewlyVisible[1],
             firstNewlyVisible[0],
           );
-        }
-
-        if (lastNewlyHidden && lastVisibleCallback.current) {
-          lastVisibleCallback.current(lastNewlyHidden[1], lastNewlyHidden[0]);
         }
 
         if (visibleChangeCallback.current) {
@@ -88,7 +79,7 @@ const useVisible = <E extends Element>() => {
               }
               return acc;
             }, [] as number[])
-            .sort();
+            .sort((a, b) => a - b);
 
           visibleChangeCallback.current(visibleIdxs);
         }
@@ -99,12 +90,11 @@ const useVisible = <E extends Element>() => {
     return () => {
       observer.current && observer.current.disconnect();
     };
-  }, [firstVisibleCallback, lastVisibleCallback, visibleChangeCallback]);
+  }, [firstVisibleCallback, visibleChangeCallback]);
 
   return {
     addNode,
     onFirstVisibleChange,
-    onLastVisibleChange,
     onVisibleChange,
   };
 };
